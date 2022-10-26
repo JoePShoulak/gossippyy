@@ -1,0 +1,18 @@
+
+
+{{#each posts as |post| }}
+
+
+<div class="card">
+  <div class="card-header">
+    <h4>{{ post.title }}</h4>
+  </div>
+  <div class="card-body">
+    <p class="card-title"> {{ format_time post.createdAt }}</p>
+    <p class="card-text">{{ post.description }}</p>
+    <a href="#" class="btn btn-primary">Button 1</a>
+    <a href="#" class="btn btn-primary">Button 2</a>
+  </div>
+</div>
+
+{{/each}}
