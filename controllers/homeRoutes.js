@@ -17,8 +17,7 @@ router.get("/users/:id", async (req, res) => {
   const user = userData.dataValues;
 
   if (req.session.logged_in) {
-    // res.render("profile", { user });
-    res.send("profile"); //TODO: clear this and render
+    res.render("profile", { user });
   } else {
     res.redirect("/");
     return;
@@ -28,15 +27,13 @@ router.get("/users/:id", async (req, res) => {
 router.get("/users/search/:name", async (req, res) => {
   const userData = await User.findAll({
     where: {
-      // first_name: req.params.name,
-      name: req.params.name,
+      first_name: req.params.name,
     },
   });
   const users = userData.map((data) => data.get({ plain: true }));
 
   if (req.session.logged_in) {
-    // res.render("profile", { users });
-    res.send(`profile: ${users[0].email}`); //TODO: clear this and render
+    res.render("search", { users });
   } else {
     res.redirect("/");
     return;
@@ -44,12 +41,11 @@ router.get("/users/search/:name", async (req, res) => {
 });
 
 router.get("/profile", async (req, res) => {
-  const userData = await User.findByPk(req.session.user_id);
-  const user = userData.dataValues;
-
   if (req.session.logged_in) {
-    // res.render("profile", { user });
-    res.send("profile"); //TODO: clear this and render
+    const userData = await User.findByPk(req.session.user_id);
+    const user = userData.dataValues;
+
+    res.render("profile", { user });
   } else {
     res.redirect("/");
     return;
@@ -66,8 +62,7 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/signup", (req, res) => {
-  res.send("signup"); //TODO: clear this out
-  // res.render("signup");
+  res.render("signup");
 });
 
 module.exports = router;
