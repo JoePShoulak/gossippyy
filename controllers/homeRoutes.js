@@ -21,4 +21,9 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+router.get("/signup", (req, res) => {
+  res.send("signup"); //TODO: clear this out
+  // res.render("signup");
+});
+
 module.exports = router;
