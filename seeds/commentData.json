@@ -1,0 +1,27 @@
+[
+    {
+        "user_id": 1,
+        "post_id": 2,
+        "content": "This is Kayla's comment on Tarek's post"
+    },
+    {
+        "user_id": 2,
+        "post_id": 2,
+        "content": "This Tarek's comment on his own post"
+    },
+    {
+        "user_id": 3,
+        "post_id": 1,
+        "content": "This is Joe's comment on Kayla's post"
+    },
+    {
+        "user_id": 4,
+        "post_id": 1,
+        "content": "This is Joey's comment on Kayla's post"
+    },
+    {
+        "user_id": 5,
+        "post_id": 2,
+        "content": "This is Ryan's comment on Tarek's post"
+    }
+]
