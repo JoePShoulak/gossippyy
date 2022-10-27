@@ -25,6 +25,24 @@ router.get("/users/:id", async (req, res) => {
   }
 });
 
+router.get("/users/search/:name", async (req, res) => {
+  const userData = await User.findAll({
+    where: {
+      // first_name: req.params.name,
+      name: req.params.name,
+    },
+  });
+  const users = userData.map((data) => data.get({ plain: true }));
+
+  if (req.session.logged_in) {
+    // res.render("profile", { users });
+    res.send(`profile: ${users[0].email}`); //TODO: clear this and render
+  } else {
+    res.redirect("/");
+    return;
+  }
+});
+
 router.get("/profile", async (req, res) => {
   const userData = await User.findByPk(req.session.user_id);
   const user = userData.dataValues;
