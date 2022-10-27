@@ -12,6 +12,19 @@ router.get("/", async (req, res) => {
   res.render("homepage", { posts, loggedIn: req.session.logged_in });
 });
 
+router.get("/profile", async (req, res) => {
+  const userData = await User.findByPk(req.session.user_id);
+  const user = userData.dataValues;
+
+  if (req.session.logged_in) {
+    // res.render("profile", { user });
+    res.send("profile"); //TODO: clear this and render
+  } else {
+    res.redirect("/");
+    return;
+  }
+});
+
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");
