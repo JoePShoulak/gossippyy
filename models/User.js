@@ -41,6 +41,9 @@ User.init(
         len: [8],
       },
     },
+    /* img_url:    
+    friend_id:
+    */
   },
   {
     hooks: {
