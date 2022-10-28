@@ -14,15 +14,21 @@ router.get("/", withAuth, async (req, res) => {
   res.render("homepage", { posts, loggedIn: req.session.logged_in });
 });
 
-router.get("/users/:id", async (req, res) => {
-  const userData = await User.findByPk(req.params.id);
-  const user = userData.dataValues;
+router.get("/userpage/:id", async (req, res) => {
+  console.log(req.params);
+
+  const resp = await User.findByPk(req.params.id);
+  // console.log(userData);
+  const userData = resp.get({ plain: true });
+
+  console.log("===== user =======");
+  console.log(req.session.logged_in);
 
   if (req.session.logged_in) {
-    res.render("profile", { user });
+    res.render("profile", { userData });
   } else {
-    res.redirect("/");
-    return;
+    console.log("not logged in");
+    //res.redirect("/");
   }
 });
 
