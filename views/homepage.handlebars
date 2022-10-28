@@ -27,17 +27,37 @@
         <img class="postimg" src="/images/meme.jpeg" width="32" height="32" />
 
         <p class="pb-3 mb-0 small lh-sm border-bottom">
-          <strong class="d-block text-gray-dark">@username
-            {{post.title}}</strong>
+          <strong class="d-block text-gray-dark">Did you hear that
+            <a href="/users/{{post.User.id}}">{{post.User.first_name}}
+              {{post.User.last_name}}</a>
+            said...</strong>
           {{post.content}}
         </p>
+
       </div>
+      {{#if post.Comments}}
+        {{#each post.Comments as |comment|}}
+          <div class="d-flex text-muted pt-3">
+            <p
+              class="pb-3 mb-0 small lh-sm border-bottom"
+              style="margin-left: 75px"
+            >
+              <strong class="d-block text-gray-dark">And then
+                <a
+                  href="/users/{{comment.User.id}}"
+                >{{comment.User.first_name}}</a>
+                {{!-- {{comment.User.last_name}} --}}
+                said...</strong>
+              {{comment.content}}</p>
+          </div>
+        {{/each}}
+      {{/if}}
 
     {{/each}}
 
-    <small class="d-block text-end mt-3">
+    {{! <small class="d-block text-end mt-3">
       <a href="#">All updates</a>
-    </small>
+    </small> }}
   </div>
 
   <div class="my-3 p-3 bg-body rounded shadow-sm">

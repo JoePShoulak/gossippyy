@@ -1,9 +1,11 @@
 const router = require("express").Router();
-const { Post, User } = require("../models");
+const { Post, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
-  const postData = await Post.findAll();
+  const postData = await Post.findAll({
+    include: [{ model: Comment, include: [{ model: User }] }, { model: User }],
+  });
 
   const posts = postData.map((data) => data.get({ plain: true }));
 
