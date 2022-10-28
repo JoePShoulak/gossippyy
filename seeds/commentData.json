@@ -2,26 +2,26 @@
     {
         "user_id": 1,
         "post_id": 2,
-        "content": "This is user_id 1's comment on post_id 2's post"
+        "content": "I could not agree more"
     },
     {
         "user_id": 2,
         "post_id": 2,
-        "content": "This is user_id 2's comment on post_id 2's post"
+        "content": "💀💀💀"
     },
     {
         "user_id": 3,
         "post_id": 1,
-        "content": "This is user_id 3's comment on post_id 1's post"
+        "content": "Facts"
     },
     {
         "user_id": 4,
         "post_id": 1,
-        "content": "This is user_id 4's comment on post_id 1's post"
+        "content": "Excuse me??!!"
     },
     {
         "user_id": 5,
         "post_id": 2,
-        "content": "This is user_id 5's comment on post_id 2's post"
+        "content": "🤦"
     }
 ]
