@@ -13,3 +13,8 @@
 .mb-4 {
 justify-content: center;
 }
+
+.postimg {
+  border-radius: 15%;
+  margin: 1%;
+}
