@@ -17,22 +17,21 @@
   <body class="bg-light">
 
     <!-- Nav bar: -->
-    {{#if loggedIn}}
-    <div class="nav-scroller bg-body shadow-sm">
-      <nav class="nav" aria-label="Secondary navigation">
-        <a class="nav-link active" aria-current="page" href="/">Home</a>
-        <a class="nav-link" href="#">
-          Friends
-          <span
-            class="badge text-bg-light rounded-pill align-text-bottom"
-          >27</span>
-        </a>
-        <a class="nav-link" href="#">Explore</a>
-        <a class="nav-link" href="#">Suggestions</a>
-        <a class="nav-link auth" href="/login">
-          {{#if loggedIn}}Logout{{else}}Login{{/if}}
-        </a>
-        <!-- Search form:
+    {{#unless nobar}}
+      <div class="nav-scroller bg-body shadow-sm">
+        <nav class="nav" aria-label="Secondary navigation">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link" href="#">
+            Friends
+            <span
+              class="badge text-bg-light rounded-pill align-text-bottom"
+            >27</span>
+          </a>
+          <a class="nav-link" href="/profile">Profile</a>
+          <a class="nav-link auth" href="/login">
+            {{#if loggedIn}}Logout{{else}}Login{{/if}}
+          </a>
+          <!-- Search form:
         <form class="d-flex" role="search">
           <input
             class="form-control me-2"
@@ -43,9 +42,9 @@
           <button class="btn btn-outline-succes btn-secondary" type="submit">Search</button>
         </form>
         -->
-      </nav>
-    </div>
-    {{/if}}
+        </nav>
+      </div>
+    {{/unless}}
     {{{body}}}
 
     <script src="/js/logout.js"></script>

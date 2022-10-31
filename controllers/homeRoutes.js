@@ -30,7 +30,7 @@ router.get("/users/:id", async (req, res) => {
   console.log(user);
 
   if (req.session.logged_in) {
-    res.render("profile", { user });
+    res.render("profile", { user, loggedIn: req.session.logged_in });
   } else {
     console.log("not logged in");
     res.redirect("/");
@@ -46,7 +46,7 @@ router.get("/users/search/:name", async (req, res) => {
   const users = userData.map((data) => data.get({ plain: true }));
 
   if (req.session.logged_in) {
-    res.render("search", { users });
+    res.render("search", { users, loggedIn: req.session.logged_in });
   } else {
     res.redirect("/");
     return;
@@ -55,10 +55,7 @@ router.get("/users/search/:name", async (req, res) => {
 
 router.get("/profile", async (req, res) => {
   if (req.session.logged_in) {
-    const userData = await User.findByPk(req.session.user_id);
-    const user = userData.dataValues;
-
-    res.render("profile", { user });
+    res.redirect(`/users/${req.session.user_id}`);
   } else {
     res.redirect("/");
     return;
@@ -71,11 +68,11 @@ router.get("/login", (req, res) => {
     return;
   }
 
-  res.render("login");
+  res.render("login", { nobar: true });
 });
 
 router.get("/signup", (req, res) => {
-  res.render("signup");
+  res.render("signup", { nobar: true });
 });
 
 module.exports = router;
