@@ -1,0 +1,27 @@
+[
+    {
+        "user_id": 1,
+        "post_id": 2,
+        "content": "I could not agree more"
+    },
+    {
+        "user_id": 2,
+        "post_id": 2,
+        "content": "💀💀💀"
+    },
+    {
+        "user_id": 3,
+        "post_id": 1,
+        "content": "Lolwut"
+    },
+    {
+        "user_id": 4,
+        "post_id": 1,
+        "content": "That's not the ONLY thing they did..."
+    },
+    {
+        "user_id": 5,
+        "post_id": 2,
+        "content": "Me too! I thought I was the only one..."
+    }
+]

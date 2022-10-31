@@ -1,0 +1,44 @@
+.btn-primary {
+  background-color: rgba(122,38,193,255);
+  margin: 5px;
+}
+
+.btn-primary:hover {
+color:rgba(122,38,193,255) ;
+background-color: white;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: rgba(122,38,193,255);
+  border: 1px solid rgba(122,38,193,255);
+  margin: 5px;
+}
+
+.btn-secondary:hover {
+  color: white;
+  background-color: rgba(122,38,193,255);
+}
+
+.mb-4 {
+justify-content: center;
+}
+
+.postimg {
+  border-radius: 15%;
+  margin: 1%;
+}
+
+.nav-link {
+  color: rgba(122,38,193,255);
+}
+
+.nav-link:hover {
+  color: white;
+  background-color: rgba(122,38,193,255);
+}
+
+.purple-color {
+  color: rgba(122,38,193,255);
+}
+
