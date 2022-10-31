@@ -1,18 +1,35 @@
 <div class="login-form justify-content-center d-flex">
-  <form class="col-6" id="login-form">
+  <form class="col-6" id="signup-form">
     <!-- Place our logo here instead: -->
     <div class="d-flex justify-content-center">
       <img
-        class="mb-4 mt-4"
-        id="login-logo"
+        class="mb-4 center"
         src="/images/logo-no-background.png"
         alt=""
         width="210"
         height="140"
       />
     </div>
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 fw-normal">Create an account </h1>
 
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        id="first_name"
+        placeholder="John"
+      />
+      <label for="floatingInput">First name</label>
+    </div>
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        id="last_name"
+        placeholder="Doe"
+      />
+      <label for="floatingInput">Last name</label>
+    </div>
     <div class="form-floating">
       <input
         type="email"
@@ -31,18 +48,12 @@
       />
       <label for="floatingPassword">Password</label>
     </div>
-
     <button
       id="login-btn"
       class="w-100 btn btn-md btn-primary"
       type="submit"
-    >Sign in</button>
-    <button
-      id="signup-btn"
-      class="w-100 btn btn-md btn-secondary"
-      type="button"
-    >Sign up</button>
+    >Create account</button>
   </form>
 </div>
 
-<script src="/js/login.js"></script>
+<script src="/js/signup.js"></script>
