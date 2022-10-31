@@ -4,6 +4,7 @@
   >
     <!-- Our logo here: -->
     <div class="d-flex justify-content-center">
+
     <img
       class="m-3"
       src="/images/logo-no-background.png"
@@ -23,23 +24,54 @@
   <div class="my-3 p-3 bg-body rounded shadow-sm">
     <h6 class="purple-color border-bottom pb-2 mb-0">Recent updates</h6>
 
+    <form id="post-form">
+      <div class="form-group">
+        <textarea name="content" id="post-content"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
     {{#each posts as |post|}}
       <div class="d-flex text-muted pt-3">
         <!-- Profile pic? -->
         <img class="postimg" src="/images/meme.jpeg" width="32" height="32" />
 
         <p class="pb-3 mb-0 small lh-sm border-bottom">
-          <strong class="d-block text-gray-dark">@username
-            {{post.title}}</strong>
+          <strong class="d-block text-gray-dark">Did you hear that
+            <a href="/users/{{post.User.id}}">{{post.User.first_name}}
+              {{post.User.last_name}}</a>
+            said...</strong>
           {{post.content}}
         </p>
+
       </div>
+      {{#if post.Comments}}
+        {{#each post.Comments as |comment|}}
+          <div class="d-flex text-muted pt-3">
+            <p
+              class="pb-3 mb-0 small lh-sm border-bottom"
+              style="margin-left: 75px"
+            >
+              <strong class="d-block text-gray-dark">And then
+                <a
+                  href="/users/{{comment.User.id}}"
+                >{{comment.User.first_name}}</a>
+                {{!-- {{comment.User.last_name}} --}}
+                said...</strong>
+              {{comment.content}}</p>
+          </div>
+        {{/each}}
+      {{/if}}
+
+      <button data-postid={{post.id}} class="btn-comment">comment</button>
+      <div id="commentArea-{{@index}}"></div>
 
     {{/each}}
 
     <small class=" d-block text-end mt-3">
       <a class="purple-color" href="#">All updates</a>
     </small>
+
   </div>
 
   <div class="my-3 p-3 bg-body rounded shadow-sm">
@@ -133,3 +165,6 @@
     </small>
   </div>
 </main>
+
+<script src="/js/comment.js"></script>
+<script src="/js/post.js"></script>

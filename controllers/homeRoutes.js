@@ -1,11 +1,13 @@
 const router = require("express").Router();
-const { Post, User } = require("../models");
+const { Post, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
-  const postData = await Post.findAll();
+  const postData = await Post.findAll({
+    include: [{ model: Comment, include: [{ model: User }] }, { model: User }],
+  });
 
-  const posts = postData.map((data) => data.get({ plain: true }));
+  const posts = postData.map((data) => data.get({ plain: true })).reverse();
 
   console.log(req.session.logged_in);
 
@@ -13,14 +15,25 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 router.get("/users/:id", async (req, res) => {
-  const userData = await User.findByPk(req.params.id);
-  const user = userData.dataValues;
+  console.log(req.params);
+
+  const resp = await User.findByPk(req.params.id, {
+    include: [
+      {
+        model: Post,
+        include: [{ model: Comment, include: [{ model: User }] }],
+      },
+    ],
+  });
+
+  const user = resp.get({ plain: true });
+  console.log(user);
 
   if (req.session.logged_in) {
     res.render("profile", { user });
   } else {
+    console.log("not logged in");
     res.redirect("/");
-    return;
   }
 });
 
