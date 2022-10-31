@@ -1,15 +1,18 @@
 <main class="container">
   <div
-    class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm"
+    {{!-- class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm" --}}
   >
+    <!-- Our logo here: -->
+    <div class="d-flex justify-content-center">
 
     <img
-      class="me-3"
+      class="m-3"
       src="/images/logo-no-background.png"
       alt=""
-      width="48"
-      height="38"
+      width="210"
+      height="140"
     />
+  </div>
 
     <!-- <div class="lh-1">
                 <h1 class="h6 mb-0 text-white lh-1">Bootstrap</h1>
@@ -19,7 +22,7 @@
   </div>
 
   <div class="my-3 p-3 bg-body rounded shadow-sm">
-    <h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
+    <h6 class="purple-color border-bottom pb-2 mb-0">Recent updates</h6>
 
     <form id="post-form">
       <div class="form-group">
@@ -65,13 +68,14 @@
 
     {{/each}}
 
-    {{! <small class="d-block text-end mt-3">
-      <a href="#">All updates</a>
-    </small> }}
+    <small class=" d-block text-end mt-3">
+      <a class="purple-color" href="#">All updates</a>
+    </small>
+
   </div>
 
   <div class="my-3 p-3 bg-body rounded shadow-sm">
-    <h6 class="border-bottom pb-2 mb-0">Suggestions</h6>
+    <h6 class="purple-color border-bottom pb-2 mb-0">Suggestions</h6>
     <div class="d-flex text-muted pt-3">
       <svg
         class="bd-placeholder-img flex-shrink-0 me-2 rounded"
@@ -95,7 +99,7 @@
       <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
         <div class="d-flex justify-content-between">
           <strong class="text-gray-dark">Full Name</strong>
-          <a href="#">Follow</a>
+          <a class="purple-color" href="#">Follow</a>
         </div>
         <span class="d-block">@username</span>
       </div>
@@ -123,7 +127,7 @@
       <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
         <div class="d-flex justify-content-between">
           <strong class="text-gray-dark">Full Name</strong>
-          <a href="#">Follow</a>
+          <a class="purple-color" href="#">Follow</a>
         </div>
         <span class="d-block">@username</span>
       </div>
@@ -151,13 +155,13 @@
       <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
         <div class="d-flex justify-content-between">
           <strong class="text-gray-dark">Full Name</strong>
-          <a href="#">Follow</a>
+          <a class="purple-color" href="#">Follow</a>
         </div>
         <span class="d-block">@username</span>
       </div>
     </div>
     <small class="d-block text-end mt-3">
-      <a href="#">All suggestions</a>
+      <a class="purple-color" href="#">All suggestions</a>
     </small>
   </div>
 </main>

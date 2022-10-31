@@ -11,11 +11,13 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/login.css" />
   </head>
 
   <body class="bg-light">
 
     <!-- Nav bar: -->
+    {{#if loggedIn}}
     <div class="nav-scroller bg-body shadow-sm">
       <nav class="nav" aria-label="Secondary navigation">
         <a class="nav-link active" aria-current="page" href="/">Home</a>
@@ -30,7 +32,7 @@
         <a class="nav-link auth" href="/login">
           {{#if loggedIn}}Logout{{else}}Login{{/if}}
         </a>
-        <!-- Search form: -->
+        <!-- Search form:
         <form class="d-flex" role="search">
           <input
             class="form-control me-2"
@@ -38,10 +40,12 @@
             placeholder="Search"
             aria-label="Search"
           />
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn btn-outline-succes btn-secondary" type="submit">Search</button>
         </form>
+        -->
       </nav>
     </div>
+    {{/if}}
     {{{body}}}
 
     <script src="/js/logout.js"></script>

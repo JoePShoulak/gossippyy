@@ -3,11 +3,21 @@
   margin: 5px;
 }
 
+.btn-primary:hover {
+color:rgba(122,38,193,255) ;
+background-color: white;
+}
+
 .btn-secondary {
   background-color: white;
   color: rgba(122,38,193,255);
   border: 1px solid rgba(122,38,193,255);
   margin: 5px;
+}
+
+.btn-secondary:hover {
+  color: white;
+  background-color: rgba(122,38,193,255);
 }
 
 .mb-4 {
@@ -19,18 +29,16 @@ justify-content: center;
   margin: 1%;
 }
 
-.card {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
+.nav-link {
+  color: rgba(122,38,193,255);
 }
 
-/* On mouse-over, add a deeper shadow */
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+.nav-link:hover {
+  color: white;
+  background-color: rgba(122,38,193,255);
 }
 
-/* Add some padding inside the card container */
-.container {
-  padding: 2px 16px;
+.purple-color {
+  color: rgba(122,38,193,255);
 }
+
