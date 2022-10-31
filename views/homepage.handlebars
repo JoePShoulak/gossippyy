@@ -2,7 +2,7 @@
   <div
     class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm"
   >
-    <!-- Our logo here: -->
+
     <img
       class="me-3"
       src="/images/logo-no-background.png"
@@ -52,6 +52,9 @@
           </div>
         {{/each}}
       {{/if}}
+
+      <button data-postid={{post.id}} class="btn-comment">comment</button>
+      <div id="commentArea-{{@index}}"></div>
 
     {{/each}}
 
@@ -151,3 +154,5 @@
     </small>
   </div>
 </main>
+
+<script src="/js/comment.js"></script>
