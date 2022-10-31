@@ -1,32 +1,37 @@
 [
   {
-    "first_name": "Kayla",
-    "last_name": "Justice",
+    "first_name": "Holly",
+    "last_name": "Andrews",
     "email": "kaylatest@hotmail.com",
+    "image": "/images/image4.png",
     "password": "kaylatest123"
   },
   {
-    "first_name": "Tarek",
-    "last_name": "Menesi",
+    "first_name": "Emma",
+    "last_name": "Smith",
     "email": "tarektest@aol.com",
+    "image": "/images/image3.jpeg",
     "password": "tarektest123"
   },
   {
-    "first_name": "Joe",
-    "last_name": "Shoulak",
+    "first_name": "Robert",
+    "last_name": "Williams",
     "email": "joetest@gmail.com",
+    "image": "/images/image1.jpg",
     "password": "joetest123"
   },
   {
-    "first_name": "Joey",
-    "last_name": "Krieger",
+    "first_name": "Baker",
+    "last_name": "Miller",
     "email": "joeytest@msn.com",
+    "image": "/images/image6.jpg",
     "password": "joeytest123"
   },
   {
-    "first_name": "Ryan",
-    "last_name": "Gustafson",
-    "email": "ryantest@yahoo.com",
+    "first_name": "Erin",
+    "last_name": "Johnson",
+    "email": "erin@yahoo.com",
+    "image": "/images/image5.jpg",
     "password": "ryantest123"
   }
 ]

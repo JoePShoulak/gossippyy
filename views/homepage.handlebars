@@ -1,18 +1,18 @@
 <main class="container">
   <div
-    {{!-- class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm" --}}
+    {{! class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm" }}
   >
     <!-- Our logo here: -->
     <div class="d-flex justify-content-center">
 
-    <img
-      class="m-3"
-      src="/images/logo-no-background.png"
-      alt=""
-      width="210"
-      height="140"
-    />
-  </div>
+      <img
+        class="m-3"
+        src="/images/logo-no-background.png"
+        alt=""
+        width="210"
+        height="140"
+      />
+    </div>
 
     <!-- <div class="lh-1">
                 <h1 class="h6 mb-0 text-white lh-1">Bootstrap</h1>
@@ -34,7 +34,7 @@
     {{#each posts as |post|}}
       <div class="d-flex text-muted pt-3">
         <!-- Profile pic? -->
-        <img class="postimg" src="/images/meme.jpeg" width="32" height="32" />
+        <img class="postimg" src="{{post.User.image}}" width="32" height="32" />
 
         <p class="pb-3 mb-0 small lh-sm border-bottom">
           <strong class="d-block text-gray-dark">Did you hear that
@@ -68,7 +68,7 @@
 
     {{/each}}
 
-    <small class=" d-block text-end mt-3">
+    <small class="d-block text-end mt-3">
       <a class="purple-color" href="#">All updates</a>
     </small>
 
