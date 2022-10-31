@@ -1,24 +1,19 @@
 <div class="padding">
   <div class="profile-header">
-    <div class="pro-img card" style="width:50%"><img
-        src="https://i.imgur.com/8RKXAIV.jpg"
-        alt="user"
-      /></div>
+    <div class="d-flex justify-content-center">
+      <img class="mb-4 mt-4 profile-pic" src="https://i.imgur.com/8RKXAIV.jpg" alt="user" width="20%"/>
+    </div>
     <div class="container">
-      <h3 class="m-b-0">{{user.first_name}} {{user.last_name}}</h3>
-      <a
-        href="javascript:void(0)"
-        class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded"
-        data-abc="true"
-      >Follow</a>
+      <div class="d-flex justify-content-center"><h3 class="m-b-0">{{user.first_name}} {{user.last_name}}</h3></div>
+      <div class="d-flex justify-content-center"><a href="javascript:void(0)" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded" data-abc="true">Follow</a></div>
     </div>
   </div>
 
 </div>
 
 <!-- Posts (cards) -->
-<div class="my-3 p-3 bg-body rounded shadow-sm">
-  <h6 class="border-bottom pb-2 mb-0">Posts</h6>
+ <div class="d-flex justify-content-center"><h6 class="border-bottom pb-2 mt-5" id="post-title">Posts</h6></div>
+<div class="mb-3 rounded shadow-sm d-flex justify-content-center">
 
   <div class="col-6">
     {{#each user.Posts as |post|}}
@@ -60,6 +55,6 @@
 <!-- Friends -->
 <div class="col-6">
   <strong class="text-gray-dark">Full Name</strong>
-  <a href="#">Follow</a>
+  <a class="purple-color" href="#">Follow</a>
   <span class="d-block">@username</span>
 </div>

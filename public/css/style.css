@@ -42,3 +42,10 @@ justify-content: center;
   color: rgba(122,38,193,255);
 }
 
+.profile-pic {
+  border-radius: 50%;
+}
+
+#post-title {
+  font-size: 1.5rem;
+}
