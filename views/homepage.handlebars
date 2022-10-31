@@ -21,6 +21,13 @@
   <div class="my-3 p-3 bg-body rounded shadow-sm">
     <h6 class="border-bottom pb-2 mb-0">Recent updates</h6>
 
+    <form id="post-form">
+      <div class="form-group">
+        <textarea name="content" id="post-content"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
     {{#each posts as |post|}}
       <div class="d-flex text-muted pt-3">
         <!-- Profile pic? -->
@@ -156,3 +163,4 @@
 </main>
 
 <script src="/js/comment.js"></script>
+<script src="/js/post.js"></script>

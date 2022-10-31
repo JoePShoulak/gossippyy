@@ -7,7 +7,7 @@ router.get("/", withAuth, async (req, res) => {
     include: [{ model: Comment, include: [{ model: User }] }, { model: User }],
   });
 
-  const posts = postData.map((data) => data.get({ plain: true }));
+  const posts = postData.map((data) => data.get({ plain: true })).reverse();
 
   console.log(req.session.logged_in);
 
