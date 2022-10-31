@@ -1,7 +1,6 @@
 .btn-primary {
   background-color: rgba(122,38,193,255);
   margin: 5px;
-
 }
 
 .btn-primary:hover {
@@ -28,4 +27,17 @@ justify-content: center;
 .postimg {
   border-radius: 15%;
   margin: 1%;
+}
+
+.nav-link {
+  color: rgba(122,38,193,255);
+}
+
+.nav-link:hover {
+  color: white;
+  background-color: rgba(122,38,193,255);
+}
+
+.purple-color {
+  color: rgba(122,38,193,255);
 }
