@@ -11,11 +11,13 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/login.css" />
   </head>
 
   <body class="bg-light">
 
     <!-- Nav bar: -->
+    {{#if loggedIn}}
     <div class="nav-scroller bg-body shadow-sm">
       <nav class="nav" aria-label="Secondary navigation">
         <a class="nav-link active" aria-current="page" href="/">Home</a>
@@ -42,6 +44,7 @@
         </form>
       </nav>
     </div>
+    {{/if}}
     {{{body}}}
 
     <script src="/js/logout.js"></script>
