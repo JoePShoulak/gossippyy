@@ -1,18 +1,18 @@
 <main class="container">
   <div
-    {{!-- class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm" --}}
+    {{! class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm" }}
   >
     <!-- Our logo here: -->
     <div class="d-flex justify-content-center">
 
-    <img
-      class="m-3"
-      src="/images/logo-no-background.png"
-      alt=""
-      width="210"
-      height="140"
-    />
-  </div>
+      <img
+        class="m-3"
+        src="/images/logo-no-background.png"
+        alt=""
+        width="210"
+        height="140"
+      />
+    </div>
 
     <!-- <div class="lh-1">
                 <h1 class="h6 mb-0 text-white lh-1">Bootstrap</h1>
@@ -63,12 +63,12 @@
         {{/each}}
       {{/if}}
 
-      <button data-postid={{post.id}} class="btn-comment">comment</button>
-      <div id="commentArea-{{@index}}"></div>
+      <button data-postid={{post.id}} class="btn-comment btn-secondary">comment</button>      
+      <div class="commentArea" id="commentArea-{{@index}}"></div>
 
     {{/each}}
 
-    <small class=" d-block text-end mt-3">
+    <small class="d-block text-end mt-3">
       <a class="purple-color" href="#">All updates</a>
     </small>
 
