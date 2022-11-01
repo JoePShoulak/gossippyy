@@ -1,9 +1,11 @@
 const createPost = async (event, i) => {
   event.preventDefault();
 
-  const content = document.getElementById("post-content").value;
-
-  console.log(content);
+  // const content = document.querySelector(".mytextarea").value;
+  const content = tinymce.activeEditor
+    .getContent()
+    .split("<p>")[1]
+    .split("</p>")[0];
 
   try {
     const response = await fetch("/api/post", {
@@ -11,7 +13,7 @@ const createPost = async (event, i) => {
       body: JSON.stringify({ content }),
       headers: { "Content-Type": "application/json" },
     });
-    // location.reload();
+    location.reload();
   } catch (err) {
     console.log(err);
   }
