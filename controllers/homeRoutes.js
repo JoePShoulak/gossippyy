@@ -3,6 +3,8 @@ const withAuth = require("../utils/auth");
 const { Post, User, Comment, Follow } = require("../models");
 
 router.get("/", withAuth, async (req, res) => {
+  const thisUser = await User.findByPk(req.session.user_id);
+
   const postData = await Post.findAll({
     include: [
       { model: Comment, include: [{ model: User }] },
@@ -10,7 +12,11 @@ router.get("/", withAuth, async (req, res) => {
     ],
   });
 
-  console.log(postData[0]);
+  console.log("==== THIS USER ===");
+  console.log(thisUser);
+
+  console.log("==== ALL POSTS' USERS ===");
+  console.log(postData.map((d) => d.User));
 
   const posts = postData.map((data) => data.get({ plain: true })).reverse();
 
