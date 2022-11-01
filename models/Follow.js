@@ -1,11 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-// create Comment model
-class Comment extends Model {}
+class Follow extends Model {}
 
-// create fields/columns for Comment model
-Comment.init(
+Follow.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -13,19 +11,17 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    content: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
-    post_id: {
+    follower_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
-        model: "Post",
+        model: "User",
         key: "id",
       },
     },
-    user_id: {
+    following_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: "User",
         key: "id",
@@ -34,11 +30,11 @@ Comment.init(
   },
   {
     sequelize,
-    timestamps: true,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "Comment",
+    modelName: "Follow",
   }
 );
 
-module.exports = Comment;
+module.exports = Follow;

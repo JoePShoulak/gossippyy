@@ -1,22 +1,27 @@
 const router = require("express").Router();
-const { Post, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
+const { Post, User, Comment, Follow } = require("../models");
 
 router.get("/", withAuth, async (req, res) => {
+  const user = await User.findByPk(req.session.user_id, {
+    include: [{ model: User, through: Follow, as: "following" }],
+  });
+
   const postData = await Post.findAll({
     include: [{ model: Comment, include: [{ model: User }] }, { model: User }],
   });
 
-  const posts = postData.map((data) => data.get({ plain: true })).reverse();
+  const folowing_IDs = user.dataValues.following.map((u) => u.id);
 
-  console.log(req.session.logged_in);
+  const posts = postData
+    .map((data) => data.get({ plain: true }))
+    .filter((p) => folowing_IDs.includes(p.user_id))
+    .reverse();
 
   res.render("homepage", { posts, loggedIn: req.session.logged_in });
 });
 
 router.get("/users/:id", async (req, res) => {
-  console.log(req.params);
-
   const resp = await User.findByPk(req.params.id, {
     include: [
       {
@@ -27,7 +32,6 @@ router.get("/users/:id", async (req, res) => {
   });
 
   const user = resp.get({ plain: true });
-  console.log(user);
 
   if (req.session.logged_in) {
     res.render("profile", { user, loggedIn: req.session.logged_in });

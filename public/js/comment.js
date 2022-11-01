@@ -1,20 +1,9 @@
-// const commentBtn = document.querySelector(".commentBtn");
-// var x = document.createElement("INPUT");
-// x.setAttribute("type", "text");
-// x.className = "commentField";
-
-console.log("this script is running");
-
 let commentButtons = document.querySelectorAll(".btn-comment");
-console.log(commentButtons);
 
 let state = 0;
 
 const createComment = async (event, i) => {
-  console.log(i);
-
   event.preventDefault();
-  console.log("correctBTN");
 
   state++;
 
@@ -29,9 +18,7 @@ const createComment = async (event, i) => {
     //Post APIs the comment to DB
 
     const content = document.querySelector(".commentField").value;
-    console.log(content);
     let post_id = event.target.dataset.postid;
-    console.log(post_id);
 
     try {
       const response = await fetch("/api/comment", {

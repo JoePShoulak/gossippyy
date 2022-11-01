@@ -1,7 +1,6 @@
 const loginLogout = async (event) => {
   event.preventDefault();
   const choice = event.target.textContent.trim();
-  console.log(choice);
 
   if (choice === "Logout") {
     const response = await fetch("/api/users/logout", {
