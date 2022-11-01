@@ -21,7 +21,7 @@ The collaborators behind GOSSIPPYY include:
 
 GOSSIPPYY is easy to use, making it's usage both convenient and accessablie to a wide range of users. 
 
-First, the user is presented with a signin page where they are promted to sign in or create an account requiring their first and last name, email, and a password. 
+First, the user is presented with a signin page where they are promted to sign in or create an account requiring their first and last name, email, and a password. The password must be at least 8 characters in length.
 
 Once signed in, the user is brought to the homepage where they are able to view, create, and submit posts. User's can also comment under other user's posts by pressing the "comment" button. At the top of the page, there is a navigation bar with links to other pages including the homepage, a friends page, the user's profile page, and a "logout" button which brings the user back to the "signin" page. At the bottom of the homepage, the user can view suggested friends with the option to follow them. Additionally, by clicking "all suggestions" the user is redirected to the friends page. 
 
@@ -38,6 +38,7 @@ Lastly, user's can view their profile by clicking the "profile" button in the na
 ## Friends Page:
 ![GOSSIPPYY](./public/images/Screen%20Shot%202022-11-01%20at%2012.55.52%20PM.png)
 ## Profile Page:
+![GOSSIPPYY](./public/images/Screen%20Shot%202022-11-01%20at%202.02.29%20PM.png)
 
 
 
