@@ -79,4 +79,8 @@ router.get("/signup", (req, res) => {
   res.render("signup", { nobar: true });
 });
 
+router.get("/friends", (req, res) => {
+  res.render("friends");
+});
+
 module.exports = router;
