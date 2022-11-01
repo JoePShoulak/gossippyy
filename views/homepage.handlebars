@@ -1,17 +1,17 @@
 <main class="container">
   <div
-    {{!-- class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm" --}}
+    {{! class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm" }}
   >
     <!-- Our logo here: -->
     <div class="d-flex justify-content-center">
-    <img
-      class="m-3"
-      src="/images/logo-no-background.png"
-      alt=""
-      width="210"
-      height="140"
-    />
-  </div>
+      <img
+        class="m-3"
+        src="/images/logo-no-background.png"
+        alt=""
+        width="210"
+        height="140"
+      />
+    </div>
     <!-- <div class="lh-1">
                 <h1 class="h6 mb-0 text-white lh-1">Bootstrap</h1>
                 <small>Since 2011</small>
@@ -28,10 +28,13 @@
     {{#each posts as |post|}}
       <div class="d-flex text-muted pt-3">
         <!-- Profile pic? -->
-        <img class="postimg" src="/images/meme.jpeg" width="32" height="32" />
+        <img class="postimg" src="{{post.User.image}}" width="32" height="32" />
         <p class="pb-3 mb-0 small lh-sm border-bottom">
           <strong class="d-block text-gray-dark">Did you hear that
-            <a class="purple-color" href="/users/{{post.User.id}}">{{post.User.first_name}}
+            <a
+              class="purple-color"
+              href="/users/{{post.User.id}}"
+            >{{post.User.first_name}}
               {{post.User.last_name}}</a>
             said...</strong>
           {{post.content}}
@@ -45,7 +48,8 @@
               style="margin-left: 75px"
             >
               <strong class="d-block text-gray-dark">And then
-                <a class="purple-color"
+                <a
+                  class="purple-color"
                   href="/users/{{comment.User.id}}"
                 >{{comment.User.first_name}}</a>
                 {{!-- {{comment.User.last_name}} --}}
@@ -54,111 +58,26 @@
           </div>
         {{/each}}
       {{/if}}
-      <button data-postid={{post.id}} class="btn-comment btn-secondary">comment</button>
+      <button
+        data-postid={{post.id}}
+        class="btn-comment btn-secondary"
+      >comment</button>
       <div id="commentArea-{{@index}}"></div>
     {{/each}}
-    <small class=" d-block text-end mt-3">
+    {{! <small class="d-block text-end mt-3">
       <a class="purple-color" href="#">All updates</a>
-    </small>
+    </small> }}
   </div>
-  <div class="my-3 p-3 bg-body rounded bg-light shadow-sm">
-    <h6 class="purple-color border-bottom pb-2 mb-0">Suggestions</h6>
-    <div class="d-flex text-muted pt-3">
-      <svg
-        class="bd-placeholder-img flex-shrink-0 me-2 rounded"
-        width="32"
-        height="32"
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-label="Placeholder: 32x32"
-        preserveAspectRatio="xMidYMid slice"
-        focusable="false"
-      >
-        <title>Placeholder</title>
-        <rect width="100%" height="100%" fill="#007BFF"></rect><text
-          x="50%"
-          y="50%"
-          fill="#007BFF"
-          dy=".3em"
-        >32x32</text>
-      </svg>
-      <div class="pb-3 ml-2 mb-0 small lh-sm border-bottom w-100">
-        <div class="d-flex justify-content-between">
-          <strong class="text-gray-dark">Full Name</strong>
-          <a class="purple-color" href="#">Follow</a>
-        </div>
-        <span class="d-block">@username</span>
-      </div>
-    </div>
-    <div class="d-flex text-muted pt-3">
-      <svg
-        class="bd-placeholder-img flex-shrink-0 me-2 rounded"
-        width="32"
-        height="32"
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-label="Placeholder: 32x32"
-        preserveAspectRatio="xMidYMid slice"
-        focusable="false"
-      >
-        <title>Placeholder</title>
-        <rect width="100%" height="100%" fill="#007BFF"></rect><text
-          x="50%"
-          y="50%"
-          fill="#007BFF"
-          dy=".3em"
-        >32x32</text>
-      </svg>
-      <div class="pb-3 ml-2 mb-0 small lh-sm border-bottom w-100">
-        <div class="d-flex justify-content-between">
-          <strong class="text-gray-dark">Full Name</strong>
-          <a class="purple-color" href="#">Follow</a>
-        </div>
-        <span class="d-block">@username</span>
-      </div>
-    </div>
-    <div class="d-flex text-muted pt-3">
-      <svg
-        class="bd-placeholder-img flex-shrink-0 me-2 rounded"
-        width="32"
-        height="32"
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-label="Placeholder: 32x32"
-        preserveAspectRatio="xMidYMid slice"
-        focusable="false"
-      >
-        <title>Placeholder</title>
-        <rect width="100%" height="100%" fill="#007BFF"></rect><text
-          x="50%"
-          y="50%"
-          fill="#007BFF"
-          dy=".3em"
-        >32x32</text>
-      </svg>
-      <div class="pb-3 ml-2 mb-0 small lh-sm border-bottom w-100">
-        <div class="d-flex justify-content-between">
-          <strong class="text-gray-dark">Full Name</strong>
-          <a class="purple-color" href="#">Follow</a>
-        </div>
-        <span class="d-block">@username</span>
-      </div>
-    </div>
-    <small class="d-block text-end mt-3">
-      <a class="purple-color" href="#">All suggestions</a>
-    </small>
-  </div>
+
 </main>
-<script src="https://cdn.tiny.cloud/1/twka8de08h8i2nnwl41om8npf0jjqij47b1ib262g4rya3ww/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script
+  src="https://cdn.tiny.cloud/1/twka8de08h8i2nnwl41om8npf0jjqij47b1ib262g4rya3ww/tinymce/6/tinymce.min.js"
+  referrerpolicy="origin"
+></script>
 <script>
-      console.log("textarea: " + document.querySelector(".mytextarea"));
-      tinymce.init({
-        selector: ".mytextarea",
-        plugins: "emoticons",
-        toolbar: "emoticons",
-        toolbar_location: "bottom",
-        menubar: false
-      });
-    </script>
+  console.log("textarea: " + document.querySelector(".mytextarea"));
+  tinymce.init({ selector: ".mytextarea", plugins: "emoticons", toolbar:
+  "emoticons", toolbar_location: "bottom", menubar: false });
+</script>
 <script src="/js/comment.js"></script>
 <script src="/js/post.js"></script>

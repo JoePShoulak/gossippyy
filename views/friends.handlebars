@@ -14,25 +14,41 @@
       />
     </div>
 
-  
+    <div class="my-3 p-3 bg-body bg-light rounded shadow-sm">
+      <h6 class="purple-color border-bottom pb-2 mb-0">Current Friends</h6>
+      {{#each friends as |friend|}}
+        <div class="d-flex text-muted pt-3">
+          <img class="postimg" src="{{friend.image}}" width="32" height="32" />
 
-  <div class="my-3 p-3 bg-body bg-light rounded shadow-sm">
-    <h6 class="purple-color border-bottom pb-2 mb-0">Friend Suggestions</h6>
-     {{!-- {{#each friends as |friend|}} --}}
-    <div class="d-flex text-muted pt-3">
-        <img class="postimg" src="/images/image4.png" {{post.User.image}} width="32" height="32" />
-
-      <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-        <div class="d-flex justify-content-between">
-          <strong class="text-gray-dark">{{post.User.first_name}} Sample Name
-              {{post.User.last_name}}</strong>
-          <a class="purple-color" href="#">Follow</a>
+          <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+            <div class="d-flex justify-content-between">
+              <strong class="text-gray-dark">{{friend.first_name}}
+                {{friend.last_name}}</strong>
+              <a class="purple-color" href="/users/{{friend.id}}">View Profile</a>
+            </div>
+          </div>
         </div>
-      </div>
+      {{/each}}
     </div>
-        {{!-- {{/each}} --}}
 
+    <div class="my-3 p-3 bg-body bg-light rounded shadow-sm">
+      <h6 class="purple-color border-bottom pb-2 mb-0">Suggested Friends</h6>
+      {{#each suggestions as |suggest|}}
+        <div class="d-flex text-muted pt-3">
+          <img class="postimg" src="{{suggest.image}}" width="32" height="32" />
+
+          <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+            <div class="d-flex justify-content-between">
+              <strong class="text-gray-dark">{{suggest.first_name}}
+                {{suggest.last_name}}</strong>
+              <a class="purple-color" href="/users/{{suggest.id}}">View Profile</a>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
 </main>
 
-<script src="/js/comment.js"></script>
-<script src="/js/post.js"></script>
+{{! <script src="/js/comment.js"></script> }}
+{{! <script src="/js/post.js"></script> }}

@@ -12,6 +12,7 @@ router.get("/", withAuth, async (req, res) => {
   });
 
   const folowing_IDs = user.dataValues.following.map((u) => u.id);
+  folowing_IDs.push(user.dataValues.id);
 
   const posts = postData
     .map((data) => data.get({ plain: true }))
@@ -31,10 +32,22 @@ router.get("/users/:id", async (req, res) => {
     ],
   });
 
+  const thisUser = await User.findByPk(req.session.user_id, {
+    include: [{ model: User, through: Follow, as: "following" }],
+  });
+  const folowing_IDs = thisUser.dataValues.following.map((u) => u.id);
+  folowing_IDs.push(thisUser.id);
+
   const user = resp.get({ plain: true });
 
+  const notFollowed = !folowing_IDs.includes(user.id);
+
   if (req.session.logged_in) {
-    res.render("profile", { user, loggedIn: req.session.logged_in });
+    res.render("profile", {
+      user,
+      notFollowed,
+      loggedIn: req.session.logged_in,
+    });
   } else {
     console.log("not logged in");
     res.redirect("/");
@@ -79,8 +92,25 @@ router.get("/signup", (req, res) => {
   res.render("signup", { nobar: true });
 });
 
-router.get("/friends", (req, res) => {
-  res.render("friends");
+router.get("/friends", async (req, res) => {
+  const user = await User.findByPk(req.session.user_id, {
+    include: [{ model: User, through: Follow, as: "following" }],
+  });
+
+  const friends = user.dataValues.following.map((data) =>
+    data.get({ plain: true })
+  );
+
+  const folowing_IDs = user.dataValues.following.map((u) => u.id);
+
+  const suggestionsData = await User.findAll();
+  const suggestions = suggestionsData
+    .map((data) => data.get({ plain: true }))
+    .filter((user) => {
+      return !folowing_IDs.includes(user.id) && user.id != req.session.user_id;
+    });
+
+  res.render("friends", { friends, suggestions });
 });
 
 module.exports = router;
