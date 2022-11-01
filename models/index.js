@@ -6,13 +6,13 @@ const Follow = require("./Follow");
 User.belongsToMany(User, {
   through: Follow,
   as: "following",
-  foreignKey: "following_id",
+  foreignKey: "follower_id",
 });
 
 User.belongsToMany(User, {
   through: Follow,
   as: "follower",
-  foreignKey: "follower_id",
+  foreignKey: "following_id",
 });
 
 // a User has many Posts
