@@ -11,7 +11,7 @@ const follow = async (event) => {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
-    // location.reload();
+    location.reload();
   } catch (err) {
     console.log(err);
   }
