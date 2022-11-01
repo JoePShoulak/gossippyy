@@ -1,22 +1,28 @@
 const router = require("express").Router();
-const { Post, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
+const { Post, User, Comment, Follow } = require("../models");
 
 router.get("/", withAuth, async (req, res) => {
+  const user = await User.findByPk(req.session.user_id, {
+    include: [{ model: User, through: Follow, as: "following" }],
+  });
+
   const postData = await Post.findAll({
     include: [{ model: Comment, include: [{ model: User }] }, { model: User }],
   });
 
-  const posts = postData.map((data) => data.get({ plain: true })).reverse();
+  const folowing_IDs = user.dataValues.following.map((u) => u.id);
+  folowing_IDs.push(user.dataValues.id);
 
-  console.log(req.session.logged_in);
+  const posts = postData
+    .map((data) => data.get({ plain: true }))
+    .filter((p) => folowing_IDs.includes(p.user_id))
+    .reverse();
 
   res.render("homepage", { posts, loggedIn: req.session.logged_in });
 });
 
 router.get("/users/:id", async (req, res) => {
-  console.log(req.params);
-
   const resp = await User.findByPk(req.params.id, {
     include: [
       {
@@ -26,11 +32,22 @@ router.get("/users/:id", async (req, res) => {
     ],
   });
 
+  const thisUser = await User.findByPk(req.session.user_id, {
+    include: [{ model: User, through: Follow, as: "following" }],
+  });
+  const folowing_IDs = thisUser.dataValues.following.map((u) => u.id);
+  folowing_IDs.push(thisUser.id);
+
   const user = resp.get({ plain: true });
-  console.log(user);
+
+  const notFollowed = !folowing_IDs.includes(user.id);
 
   if (req.session.logged_in) {
-    res.render("profile", { user });
+    res.render("profile", {
+      user,
+      notFollowed,
+      loggedIn: req.session.logged_in,
+    });
   } else {
     console.log("not logged in");
     res.redirect("/");
@@ -46,7 +63,7 @@ router.get("/users/search/:name", async (req, res) => {
   const users = userData.map((data) => data.get({ plain: true }));
 
   if (req.session.logged_in) {
-    res.render("search", { users });
+    res.render("search", { users, loggedIn: req.session.logged_in });
   } else {
     res.redirect("/");
     return;
@@ -55,10 +72,7 @@ router.get("/users/search/:name", async (req, res) => {
 
 router.get("/profile", async (req, res) => {
   if (req.session.logged_in) {
-    const userData = await User.findByPk(req.session.user_id);
-    const user = userData.dataValues;
-
-    res.render("profile", { user });
+    res.redirect(`/users/${req.session.user_id}`);
   } else {
     res.redirect("/");
     return;
@@ -71,11 +85,32 @@ router.get("/login", (req, res) => {
     return;
   }
 
-  res.render("login");
+  res.render("login", { nobar: true });
 });
 
 router.get("/signup", (req, res) => {
-  res.render("signup");
+  res.render("signup", { nobar: true });
+});
+
+router.get("/friends", async (req, res) => {
+  const user = await User.findByPk(req.session.user_id, {
+    include: [{ model: User, through: Follow, as: "following" }],
+  });
+
+  const friends = user.dataValues.following.map((data) =>
+    data.get({ plain: true })
+  );
+
+  const folowing_IDs = user.dataValues.following.map((u) => u.id);
+
+  const suggestionsData = await User.findAll();
+  const suggestions = suggestionsData
+    .map((data) => data.get({ plain: true }))
+    .filter((user) => {
+      return !folowing_IDs.includes(user.id) && user.id != req.session.user_id;
+    });
+
+  res.render("friends", { friends, suggestions });
 });
 
 module.exports = router;

@@ -16,7 +16,9 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/");
     } else {
-      alert("Failed to sign up");
+      let message = "Failed to sign up";
+      if (password?.length < 8) message = "Password needs to be 8+ characters";
+      alert(message);
     }
   }
 };
