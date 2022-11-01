@@ -1,27 +1,30 @@
 .btn-primary {
-  background-color: rgba(122,38,193,255);
+  background-color: rgba(122, 38, 193, 255);
+  border-color: #f8f9fa;
   margin: 5px;
 }
 
 .btn-primary:hover {
-color:rgba(122,38,193,255) ;
-background-color: white;
+  color: rgba(122, 38, 193, 255);
+  border-color: rgba(122, 38, 193, 255);
+  background-color: white;
 }
 
 .btn-secondary {
   background-color: white;
-  color: rgba(122,38,193,255);
-  border: 1px solid rgba(122,38,193,255);
+  color: rgba(122, 38, 193, 255);
+  border: 1px solid rgba(122, 38, 193, 255);
+  border-radius: 3px;
   margin: 5px;
 }
 
 .btn-secondary:hover {
   color: white;
-  background-color: rgba(122,38,193,255);
+  background-color: rgba(122, 38, 193, 255);
 }
 
 .mb-4 {
-justify-content: center;
+  justify-content: center;
 }
 
 .postimg {
@@ -30,16 +33,16 @@ justify-content: center;
 }
 
 .nav-link {
-  color: rgba(122,38,193,255);
+  color: rgba(122, 38, 193, 255);
 }
 
 .nav-link:hover {
   color: white;
-  background-color: rgba(122,38,193,255);
+  background-color: rgba(122, 38, 193, 255);
 }
 
 .purple-color {
-  color: rgba(122,38,193,255);
+  color: rgba(122, 38, 193, 255);
 }
 
 .profile-pic {
@@ -51,9 +54,9 @@ justify-content: center;
 }
 
 textarea {
-  width: 100%  
+  width: 100%;
 }
 
 .commentfield {
-  width: 75%
+  width: 75%;
 }
