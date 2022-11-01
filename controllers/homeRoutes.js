@@ -3,7 +3,7 @@ const withAuth = require("../utils/auth");
 const { Post, User, Comment, Follow } = require("../models");
 
 router.get("/", withAuth, async (req, res) => {
-  const thisUser = await User.findByPk(req.session.user_id, {
+  const user = await User.findByPk(req.session.user_id, {
     include: [{ model: User, through: Follow, as: "following" }],
   });
 
@@ -11,15 +11,12 @@ router.get("/", withAuth, async (req, res) => {
     include: [{ model: Comment, include: [{ model: User }] }, { model: User }],
   });
 
-  const folowing_IDs = thisUser.dataValues.following.map((u) => u.id);
+  const folowing_IDs = user.dataValues.following.map((u) => u.id);
 
   const posts = postData
     .map((data) => data.get({ plain: true }))
-    .reverse()
-    .filter((p) => {
-      console.log(p.user_id);
-      return folowing_IDs.includes(p.user_id);
-    });
+    .filter((p) => folowing_IDs.includes(p.user_id))
+    .reverse();
 
   res.render("homepage", { posts, loggedIn: req.session.logged_in });
 });
