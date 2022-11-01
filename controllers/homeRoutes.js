@@ -1,22 +1,23 @@
 const router = require("express").Router();
-const { Post, User, Comment } = require("../models");
 const withAuth = require("../utils/auth");
+const { Post, User, Comment, Follow } = require("../models");
 
 router.get("/", withAuth, async (req, res) => {
   const postData = await Post.findAll({
-    include: [{ model: Comment, include: [{ model: User }] }, { model: User }],
+    include: [
+      { model: Comment, include: [{ model: User }] },
+      { model: User, incude: [{ model: Follow }] },
+    ],
   });
 
-  const posts = postData.map((data) => data.get({ plain: true })).reverse();
+  console.log(postData[0]);
 
-  console.log(req.session.logged_in);
+  const posts = postData.map((data) => data.get({ plain: true })).reverse();
 
   res.render("homepage", { posts, loggedIn: req.session.logged_in });
 });
 
 router.get("/users/:id", async (req, res) => {
-  console.log(req.params);
-
   const resp = await User.findByPk(req.params.id, {
     include: [
       {
@@ -27,7 +28,6 @@ router.get("/users/:id", async (req, res) => {
   });
 
   const user = resp.get({ plain: true });
-  console.log(user);
 
   if (req.session.logged_in) {
     res.render("profile", { user, loggedIn: req.session.logged_in });

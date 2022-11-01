@@ -15,7 +15,8 @@
       <div class="d-flex justify-content-center"><a
           href="javascript:void(0)"
           class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded"
-          data-abc="true"
+          data-id={{user.id}}
+          id="follow"
         >Follow</a></div>
     </div>
   </div>
@@ -52,7 +53,8 @@
               style="margin-left: 75px"
             >
               <strong class="d-block text-gray-dark">And then
-                <a class="purple-color"                
+                <a
+                  class="purple-color"
                   href="/users/{{comment.User.id}}"
                 >{{comment.User.first_name}}</a>
                 {{!-- {{comment.User.last_name}} --}}
@@ -78,3 +80,5 @@
     <span class="d-block">@username</span>
   </div>
 </div>
+
+<script src="/js/follow.js"></script>

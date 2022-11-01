@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User } = require("../../models");
+const Follow = require("../../models/Follow");
 
 router.post("/login", async (req, res) => {
   try {
@@ -29,6 +30,23 @@ router.post("/login", async (req, res) => {
     });
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+router.get("/follow/:id", async (req, res) => {
+  console.log("User Route fired");
+  try {
+    const user = req.session.user_id;
+    const target_user = req.params.id;
+
+    const resp = await Follow.create({
+      follower_id: user,
+      following_id: target_user,
+    });
+
+    res.status(200).json(resp);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
