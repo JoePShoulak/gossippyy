@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-center">
 
       <img
-        class="mt-5"
+        class="m-3"
         src="/images/logo-no-background.png"
         alt=""
         width="210"
@@ -34,7 +34,7 @@
     {{#each posts as |post|}}
       <div class="d-flex text-muted pt-3">
         <!-- Profile pic? -->
-        <img class="postimg" src="/images/meme.jpeg" width="32" height="32" />
+        <img class="postimg" src="{{post.User.image}}" width="32" height="32" />
 
         <p class="pb-3 mb-0 small lh-sm border-bottom">
           <strong class="d-block text-gray-dark">Did you hear that

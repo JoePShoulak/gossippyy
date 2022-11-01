@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-center">
       <img
         class="mb-4 mt-4 profile-pic"
-        src="https://i.imgur.com/8RKXAIV.jpg"
+        src="{{user.image}}"
         alt="user"
         width="20%"
       />
@@ -33,7 +33,7 @@
     {{#each user.Posts as |post|}}
       <div class="d-flex text-muted pt-3">
         <!-- Profile pic? -->
-        <img class="postimg" src="/images/meme.jpeg" width="32" height="32" />
+        <img class="postimg" src="/images/arrow.jpg" width="32" height="32" />
 
         <p class="pb-3 mb-0 small lh-sm border-bottom">
           <strong class="d-block text-gray-dark">Did you hear that
