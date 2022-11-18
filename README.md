@@ -18,10 +18,6 @@ Lastly, user's can view their profile by clicking the "profile" button in the na
 ## Signin/Signup Pages:
 ![GOSSIPPYY](./public/images/Screen%20Shot%202022-11-01%20at%2012.59.51%20PM.png)
 ![GOSSIPPYY](./public/images/Screen%20Shot%202022-11-01%20at%201.00.33%20PM.png)
-## Homepage:
-![GOSSIPPYY](./public/images/Screen%20Shot%202022-11-01%20at%202.36.25%20PM.png)
-## Friends Page:
-![GOSSIPPYY](./public/images/Screen%20Shot%202022-11-01%20at%202.37.36%20PM.png)
 ## Profile Page:
 ![GOSSIPPYY](./public/images/Screen%20Shot%202022-11-01%20at%202.02.29%20PM.png)
 ## Links
